@@ -1,0 +1,13 @@
+<h1> <%= @author.full_name %> </h1>
+<h3>Bio:</h3>
+<p>
+<%= @author.bio %>
+</p>
+
+<h2>Books:</h2>
+<ul>
+<% @author.books.each do |book| %>
+<li> <%= link_to book.title, book_path(id: book.id) %> </li>
+<br>
+<% end %>
+</ul>

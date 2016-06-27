@@ -1,0 +1,8 @@
+<h1>Book Details:</h1>
+
+<h2> <%=@book.title %>
+  <br> By:
+  <small> <%= link_to @book.author.full_name, author_path(id: @book.author.id) %> </small>
+</h2>
+<h2><%= number_to_currency @book.price %></h2>
+<%= image_tag(@book.photo_url) %>
