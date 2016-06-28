@@ -23,10 +23,15 @@
     </div>
   </nav>
 
-<br>
-<br>
-<br>
-<%= yield %>
+  <br>
+  <br>
+  <br>
+  <% if notice %>
+    <h3 class="text-center">
+      <%= notice %>
+    </h3>
+  <% end %>
+  <%= yield %>
 
 </body>
 </html>

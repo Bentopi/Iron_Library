@@ -1,8 +1,26 @@
 <div class="container">
-  <div class="index">
-    <h2>A Collection of Fantastic Books</h2>
-  </div>
-  <div class="">
-    <%= image_tag('https://media.giphy.com/media/hxPwHuAIk7cpW/giphy.gif') %>
+  <div class="row">
+    <div class="col-xs-6">
+      <h1>Author List</h1>
+      <ul class="list-unstyled">
+        <% @authors.each do |author| %>
+        <li>
+      <%= link_to author.full_name, author_path(id: author.id)%>
+        </li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="col-xs-6">
+      <h1>Books List</h1>
+      <ul class="list-unstyled">
+        <% @books.each do |book| %>
+        <li>
+      <%= link_to book.title, book_path(id: book.id) %>
+        </li>
+        <% end %>
+      </ul>
+      <%= link_to "Add a Book", new_book_path, class: "btn btn-primary" %>
+    </div>
+
   </div>
 </div>
