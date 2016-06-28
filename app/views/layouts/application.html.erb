@@ -7,7 +7,25 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <h1> <%= link_to 'Home', root_path %>  </h1>
+    <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-3">
+        <h3><%= link_to "The Iron Library", root_path%></h3>
+        </div>
+        <div class="col-xs-2">
+          <h3><%= link_to "Authors", authors_path%></h3>
+        </div>
+        <div class="col-xs-2">
+          <h3><%= link_to "Books", books_path%></h3>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+<br>
+<br>
+<br>
 <%= yield %>
 
 </body>

@@ -1,4 +1,7 @@
 class AuthorsController < ApplicationController
+  def index
+  end
+
   def list
     @authors = Author.all.order("last_name asc")
     @books = Book.all.order("title asc")
@@ -6,14 +9,6 @@ class AuthorsController < ApplicationController
 
   def show
     @author = Author.find_by id: params[:id]
-  end
-
-  def new
-
-  end
-
-  def create
-
   end
 
 end

@@ -1,8 +1,12 @@
-<h1>Book Details:</h1>
-
-<h2> <%=@book.title %>
-  <br> By:
-  <small> <%= link_to @book.author.full_name, author_path(id: @book.author.id) %> </small>
-</h2>
-<h2><%= number_to_currency @book.price %></h2>
-<%= image_tag(@book.photo_url) %>
+<div class="container">
+  <h2> <%=@book.title %>
+    <br>
+    <small> By: <%= link_to @book.author.full_name, author_path(id: @book.author.id) %> </small>
+  </h2>
+  <h2><%= number_to_currency @book.price %></h2>
+    <%= link_to "Delete Book", delete_book_path, method: :delete, data: {confirm: "Are you sure you want to delete #{@book.title}?"}, class: "btn btn-default"%>
+    <%= link_to "Edit Book Info", edit_book_path(id: @book.id), class: "btn btn-default" %>
+  <br>
+  <br>
+    <%= image_tag((@book.photo_url), class:"thumbnail book_pic") %>
+</div>

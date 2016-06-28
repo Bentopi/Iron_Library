@@ -1,19 +1,10 @@
-<h1>Author List</h1>
-
-<ul>
-  <% @authors.each do |author| %>
-  <li>
-<%= link_to author.full_name, author_path(id: author.id)%>
-  </li>
-  <% end %>
-</ul>
-
-
-<h1>Books List</h1>
-<ul>
-  <% @books.each do |book| %>
-  <li>
-<%= link_to book.title, book_path(id: book.id) %>
-  </li>
-  <% end %>
-</ul>
+<div class="container">
+  <h1>Author List</h1>
+  <ul class="list-unstyled">
+    <% @authors.each do |author| %>
+    <li>
+  <%= link_to author.full_name, author_path(id: author.id)%>
+    </li>
+    <% end %>
+  </ul>
+</div>
