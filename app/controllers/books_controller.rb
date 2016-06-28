@@ -17,7 +17,7 @@ class BooksController < ApplicationController
     @book.photo_url = params[:book][:photo_url]
     @book.author_id = params[:book][:author_id]
     if @book.save
-      redirect_to author_path(id: @book.author_id), notice: "Book Created!"
+      redirect_to root_path, notice: "Book Created!"
     else
       render :new
     end

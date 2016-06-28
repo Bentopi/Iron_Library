@@ -1,0 +1,17 @@
+language: ruby
+rvm:
+- 2.3.1
+addons:
+  postgresql: '9.4'
+before_script:
+- psql -c 'create database travis_ci_test;' -U postgres
+- cp config/database.yml.travis config/database.yml
+deploy:
+  provider: heroku
+  api_key:
+    secure: MVh2UgGjwV8xeXc6qRoDV32ae1p4iWeFNtlmLxXyQU8gXTiyLYCL7JFHozZcl0YOlyar3WSZZeAnZA/gwgu1OMXlop286Z7exOhhYATyQ8b9AnqvybUae3B4XbxLAbKkQrEBzn4ygCCZ5wDRiRVNXVmTga4hdHSNZW0PGbYyQKweW/NAxrxjxOYyVpKDEEb3Y0JIBrzQ5NzIe51c8iV1nTZeTqrPXBTcUsqjbhapzLUM9BhT1ZFE4YZZuQY02vGY7Hf/Pco1Vmf/LdA6wh3mDaFWA1ENV4YrnUp3AHUmBRZFKM+t+Xzql8zV6K1eTKclHdWcV5q1NnaUECPAQhvKaH4LythwY1mpweerfdp0TJ/Hn2jEJY5dhYn1Kfwd73aXzzv2mIqN+varZDQNBRnhRCcoh53bY03vdDQwvyztEAR843Xgk8mHoKqjsqw/tfRz1Bkhe0D8/RyARMJjqbiWR9Z1afuMnnIBIm16pmh67LnR7O/OvXx0QPR/Ce6FCTvJwUopuhL0ewVL+IgeihcXd9VjrUh6GY4K6uDYQ2fWzdTcsA3FZ9RSF6Q/8wpOLir6LvC7PHacznVnQ4mxah1+01ipOezs80lLa1m8QiP+s743m2cxuvWXWD3Z0KdcM9zWXsUvPSHgaWRRgQK9b+8xxz/9xMKy91k7IqpJWt6GDkg=
+  app: ironlibrary2016
+  on:
+    repo: Bentopi/Iron_Library
+    run:
+    - "rake db:migrate"
