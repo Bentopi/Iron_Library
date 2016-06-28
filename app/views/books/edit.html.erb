@@ -1,19 +1,22 @@
 <h1>Edit Book Info</h1>
 
 You are editing <%= @book.title %>
-
-<%= form_tag book_path(id: @book.id), url: update_book_path, method: :patch do %>
-<%= label_tag :title %>
-<%= text_field_tag :title, @book.title %>
-<br>
-<%= label_tag :price %>
-<%= text_field_tag :price, @book.price %>
-<br>
-<%= label_tag :photo_url %>
-<%= text_field_tag :photo_url, @book.photo_url %>
-<br>
-<%= label_tag :author %>
-<%= collection_select(:author, :author_id, Author.all, :id, :full_name, {:selected => @book.author.id}) %>
-<br>
-<%= submit_tag %>
+<%= form_for @book do |f|%>
+<div class="form-group">
+  <h2><%= f.label :title %></h2>
+  <%= f.text_field :title, class:'form-control' %>
+</div>
+<div class="form-group">
+<h2><%= f.label :photo_url %></h2>
+<%= f.text_field :photo_url, class:'form-control'%>
+</div>
+<div class="form-group">
+<h2><%= f.label :price %></h2>
+<%= f.text_field :price, class:'form-control'%>
+</div>
+<div class="form-group">
+  <h2><%= f.label :author %></h2>
+  <%= f.collection_select :author_id, Author.all, :id, :full_name, {prompt: true}, class:'form-control' %>
+</div>
+<%= f.submit class:'btn btn-primary' %>
 <% end %>

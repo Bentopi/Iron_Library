@@ -29,11 +29,15 @@ class BooksController < ApplicationController
 
   def update
     @book = Book.find_by id: params[:id]
-    @book.update(title: params[:title])
-    @book.update(price: params[:price])
-    @book.update(photo_url: params[:photo_url])
-    @book.update(author_id: params[:author_id])
-    redirect_to book_path(id: @book.id), notice: "Book Updated!"
+    @book.title = params[:book][:title]
+    @book.price = params[:book][:price]
+    @book.photo_url = params[:book][:photo_url]
+    @book.author_id = params[:book][:author_id]
+    if @book.save
+      redirect_to book_path(id: @book.id), notice: "Book Updated!"
+    else
+      render :edit
+    end
   end
 
   def delete
