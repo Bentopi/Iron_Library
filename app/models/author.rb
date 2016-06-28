@@ -5,6 +5,6 @@ class Author < ActiveRecord::Base
 
   def full_name
     name = [self.first_name, self.last_name]
-    name.join(', ')
+    name.join(' ')
   end
 end

@@ -1,0 +1,23 @@
+$mainColor:#34495e;
+$altColor:#ecf0f1;
+
+.navbar {
+  background-color: $mainColor;
+}
+
+li {
+  font-size: 20px;
+}
+
+h3 {
+  a{
+    color:$altColor;
+    &:hover, &:focus {
+      color: darken($altColor, 20%);
+      text-decoration: none;
+    }
+    }
+  }
+.book_pic{
+  max-width: 280px;
+}

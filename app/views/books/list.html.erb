@@ -1,0 +1,11 @@
+<div class="container">
+  <h1>Books List</h1>
+  <ul class="list-unstyled">
+    <% @books.each do |book| %>
+    <li>
+  <%= link_to book.title, book_path(id: book.id) %>
+    </li>
+    <% end %>
+  </ul>
+  <%= link_to "Add a Book", new_book_path, class: "btn btn-primary" %>
+</div>

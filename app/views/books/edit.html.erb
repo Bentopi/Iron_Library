@@ -1,0 +1,19 @@
+<h1>Edit Book Info</h1>
+
+You are editing <%= @book.title %>
+
+<%= form_tag book_path(id: @book.id), url: update_book_path, method: :patch do %>
+<%= label_tag :title %>
+<%= text_field_tag :title, @book.title %>
+<br>
+<%= label_tag :price %>
+<%= text_field_tag :price, @book.price %>
+<br>
+<%= label_tag :photo_url %>
+<%= text_field_tag :photo_url, @book.photo_url %>
+<br>
+<%= label_tag :author %>
+<%= collection_select(:author, :author_id, Author.all, :id, :full_name, {:selected => @book.author.id}) %>
+<br>
+<%= submit_tag %>
+<% end %>
