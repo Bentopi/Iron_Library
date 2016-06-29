@@ -1,13 +1,17 @@
 require 'test_helper'
-  if Author.find_by(first_name:"Gabriel").present?
-    true
-  else
+
+class CreateBookTest < Capybara::Rails::TestCase
+  def setup
     Author.create(first_name: "Gabriel", last_name: "Perez", bio: "hello")
   end
 
-class CreateBookTest < Capybara::Rails::TestCase
   test "Creating a Book" do
+    user = User.create! username: "Benito", password: "Carnitas4life"
     visit root_path
+    click_link "Add a Book"
+    fill_in "Username", :with => "Benito"
+    fill_in "Password", :with => "Carnitas4life"
+    click_button "Sign In"
     click_link "Add a Book"
     fill_in "Title", :with => "The Three Musketeers"
     fill_in "Price", :with => 39.93

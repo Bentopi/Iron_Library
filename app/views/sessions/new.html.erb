@@ -1,0 +1,23 @@
+<div class="container">
+  <h1>It's time to sign in!</h1>
+
+  <%= form_tag do %>
+
+    <div class="">
+      <%= label_tag :username %>
+      <%= text_field_tag :username %>
+    </div>
+
+    <div class="">
+      <%= label_tag :password %>
+      <%= text_field_tag :password %>
+    </div>
+
+    <div class="">
+      <%= submit_tag "Sign In", class:"btn btn-primary" %>
+    </div>
+  <% end %>
+  <div class="">
+    <h5> <%= link_to "Don't Have an Account? Sign up Here!", new_user_path %> </h5>
+  </div>
+</div>
