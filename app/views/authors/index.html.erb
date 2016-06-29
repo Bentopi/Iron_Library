@@ -1,29 +1,26 @@
 <div class="container">
-  <div class="row">
+    <div class="row">
 
-    <h1>Current Stock:</h1>
+      <h1>Current Stock:</h1>
       <%= link_to "Add a Book", new_book_path, class: "btn btn-primary btn-lg text-center" %>
       <br>
       <br>
       <% @books.each do |book| %>
-        <div class="col-xs-4">
-          <div class="book-box">
-            <div class="image_holder">
-              <%= link_to book_path(id: book.id) do %>
-                <%= image_tag((book.photo_url), class:"img-thumbnail book-main center-block")%>
-              <% end %>
+        <div class="col-xs-6 col-sm-3">
+            <div class="book-box">
+                <div class="image_holder">
+                    <%= link_to book_path(id: book.id) do %>
+                      <%= image_tag((book.photo_url), class:"img-thumbnail book-main center-block")%>
+                    <% end %>
+                </div>
+                <div class="text-center">
+                    <%= link_to book.title, book_path(id: book.id)%>
+                    <br>
+                    By:
+                    <%= link_to book.author.full_name, author_path(id: book.author_id)%>
+                </div>
             </div>
-            <div class="text-center">
-              <%= link_to book.title, book_path(id: book.id)%>
-              <br>
-              By: <%= link_to book.author.full_name, book_path(id: book.id)%>
-            </div>
-
-          </div>
         </div>
-
         <% end %>
-
-
-  </div>
+    </div>
 </div>

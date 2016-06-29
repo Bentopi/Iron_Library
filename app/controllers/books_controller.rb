@@ -1,10 +1,19 @@
 class BooksController < ApplicationController
+
+  before_action do
+    if session[:username].nil?
+      redirect_to sign_in_path, notice: "IDENTIFY YOURSELF!"
+    end
+  end
+
   def show
     @book = Book.find_by id: params[:id]
   end
+
   def list
     @books = Book.all.order("title asc")
   end
+  
   def new
     @book = Book.new
     @book.author_id = params[:author_id]
