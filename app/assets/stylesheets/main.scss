@@ -18,6 +18,14 @@ h3 {
     }
     }
   }
-.book_pic{
+.book-box{
+  // border:solid $altColor 1px;
+  // border-radius: 10px;
+  height: 280px;
+}
+.book-pic{
   max-width: 280px;
+}
+.book-main{
+  height:200px;
 }
