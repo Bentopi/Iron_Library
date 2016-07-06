@@ -1,7 +1,7 @@
 class BooksController < ApplicationController
 
   before_action do
-    if session[:username].nil?
+    if @current_user.nil?
       redirect_to sign_in_path, notice: "IDENTIFY YOURSELF!"
     end
   end
@@ -13,7 +13,7 @@ class BooksController < ApplicationController
   def list
     @books = Book.all.order("title asc")
   end
-  
+
   def new
     @book = Book.new
     @book.author_id = params[:author_id]
@@ -54,4 +54,35 @@ class BooksController < ApplicationController
     @book.delete
     redirect_to root_path, notice: "Book Deleted!"
   end
+
+  def checkout
+    @book = Book.find_by id: params[:id]
+    if @book.inventory >0
+      @book.inventory -= 1
+      @checkout = Checkout.new
+      @checkout.book_id = @book.id
+      @checkout.user_id = @current_user.id
+      if @book.save && @checkout.save
+        redirect_to book_path(id: @book.id), notice: "Checkout Successful"
+      end
+    else
+      redirect_to book_path(id: @book.id), notice: "Book is Out of Stock!"
+    end
+
+  end
+
+  def checkin
+    @book = Book.find_by id: params[:id]
+    @checkout = Checkout.find_by user_id: @current_user.id, book_id: @book.id
+    if @checkout.present?
+      @checkout.destroy
+      @book.inventory += 1
+      if @book.save
+        redirect_to book_path(id: @book.id), notice: "Check In Successful"
+      end
+    else
+      redirect_to book_path(id: @book.id), notice: "You Haven't Checked Out This Book."
+    end
+  end
+
 end
