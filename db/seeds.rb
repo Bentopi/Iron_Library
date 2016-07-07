@@ -10,45 +10,45 @@ gabbio = "Gabriel José de la Concordia García Márquez (/ɡɑːrˈsiːə ˈmɑ
 García Márquez started as a journalist, and wrote many acclaimed non-fiction works and short stories, but is best known for his novels, such as One Hundred Years of Solitude (1967), The Autumn of the Patriarch (1975), and Love in the Time of Cholera (1985). His works have achieved significant critical acclaim and widespread commercial success, most notably for popularizing a literary style labeled as magic realism, which uses magical elements and events in otherwise ordinary and realistic situations. Some of his works are set in a fictional village called Macondo (the town mainly inspired by his birthplace Aracataca), and most of them explore the theme of solitude.
 On his death in April 2014, Juan Manuel Santos, the President of Colombia, described him as \"the greatest Colombian who ever lived.\""
 
-Author.create(first_name: "Joanne", last_name: "Rowling", bio: jkbio)
-Author.create(first_name: "Antoine", last_name: "De Saint-Exupery", bio: sebio)
-Author.create(first_name: "Gabriel", last_name: "Garcia Marquez", bio: gabbio)
+joanne = Author.create(first_name: "Joanne", last_name: "Rowling", bio: jkbio)
+antoine = Author.create(first_name: "Antoine", last_name: "De Saint-Exupery", bio: sebio)
+gabriel = Author.create(first_name: "Gabriel", last_name: "Garcia Marquez", bio: gabbio)
 
-Book.create(title:"Harry Potter and the Philosopher's Stone",
+joanne.books.create(title:"Harry Potter and the Philosopher's Stone",
   photo_url:"https://upload.wikimedia.org/wikipedia/en/b/bf/Harry_Potter_and_the_Sorcerer%27s_Stone.jpg",
-  price:49.99, author_id:1)
+  price:49.99, author_id:joanne.id)
 
-Book.create(title:"Harry Potter and the Chamber of Secrets",
+joanne.books.create(title:"Harry Potter and the Chamber of Secrets",
   photo_url:"https://upload.wikimedia.org/wikipedia/en/a/a7/Harry_Potter_and_the_Chamber_of_Secrets_%28US_cover%29.jpg",
-  price:49.99, author_id:1)
+  price:49.99, author_id:joanne.id)
 
-Book.create(title:"Harry Potter and the Prisoner of Azkaban",
+joanne.books.create(title:"Harry Potter and the Prisoner of Azkaban",
   photo_url:"https://upload.wikimedia.org/wikipedia/en/b/b4/Harry_Potter_and_the_Prisoner_of_Azkaban_%28US_cover%29.jpg",
-  price:49.99, author_id:1)
+  price:49.99, author_id:joanne.id)
 
-Book.create(title:"Harry Potter and the Goblet of Fire",
+joanne.books.create(title:"Harry Potter and the Goblet of Fire",
   photo_url:"https://upload.wikimedia.org/wikipedia/en/6/62/Harry_Potter_and_the_Goblet_of_Fire_%28US_cover%29.jpg",
-  price:49.99, author_id:1)
+  price:49.99, author_id:joanne.id)
 
-Book.create(title:"Harry Potter and the Order of the Phoenix",
+joanne.books.create(title:"Harry Potter and the Order of the Phoenix",
   photo_url:"https://stustation.files.wordpress.com/2011/01/hp5pic.jpg",
-  price:49.99, author_id:1)
+  price:49.99, author_id:joanne.id)
 
-Book.create(title:"Harry Potter and the Half-Blood Prince",
+joanne.books.create(title:"Harry Potter and the Half-Blood Prince",
   photo_url:"https://images-na.ssl-images-amazon.com/images/I/51NbOxBO%2BBL.jpg",
-  price:49.99, author_id:1)
+  price:49.99, author_id:joanne.id)
 
-Book.create(title:"Harry Potter and the Deathly Hallows",
+joanne.books.create(title:"Harry Potter and the Deathly Hallows",
   photo_url:"https://upload.wikimedia.org/wikipedia/en/0/02/Harry_Potter_and_the_Deathly_Hallows_%28US_cover%29.jpg",
-  price:49.99, author_id:1)
+  price:49.99, author_id:joanne.id)
 
-Book.create(title:"The Little Prince",
+antoine.books.create(title:"The Little Prince",
   photo_url:"http://d.gr-assets.com/books/1367545443l/157993.jpg",
-  price:29.99, author_id:2)
+  price:29.99, author_id:antoine.id)
 
-Book.create(title:"Vol De Nuit",
+antoine.books.create(title:"Vol De Nuit",
   photo_url:"http://www.renaud-bray.com/ImagesEditeurs/PG/1223/1223310-gf.jpg",
-  price:59.99, author_id:2)
+  price:59.99, author_id:antoine.id)
 
 
 
